@@ -2,7 +2,7 @@
 import { fetchBreeds } from './cat-api';
 import { fetchCatByBreed } from './cat-api';
 import Notiflix from 'notiflix';
-import SlimSelect from 'slim-select'
+//import SlimSelect from 'slim-select'
 //import catCardTemplate from '../templates/cat-card.hbs';
 
 const selectBreedEl = document.querySelector('.breed-select');
@@ -14,17 +14,15 @@ let breedsList = '';
 
 
 mesErrorEl.setAttribute('hidden', true);
-
-
-
-
+selectBreedEl.setAttribute('hidden', true);
 
 fetchBreeds()
+  
   .then(data => {
 
-    //selectBreedEl.setAttribute('hidden', true);
+    selectBreedEl.removeAttribute('hidden');
     
-    console.log(data)
+    //console.log(data)
 
     if (!data) {
            
@@ -37,14 +35,17 @@ fetchBreeds()
       
     
     data.forEach(element => { 
-
+      
+     
       mesLoaderEl.setAttribute('hidden', true);
       
     
-    breedsList += `<option value="${element.id}">${element.name}</option>`;
+      breedsList += `<option value="${element.id}">${element.name}</option>`;
+      
      
  });
     selectBreedEl.insertAdjacentHTML('afterbegin', breedsList);
+    
     
   });
 
@@ -65,12 +66,11 @@ const onSelecthCat = (event) => {
     
     .then(data => {
 
-      //mesLoaderEl.setAttribute('hidden', true);
- 
+      
       (catInfoEl.innerHTML = createCardCat(data));
 
      // console.log(data);
-      //mesLoaderEl.setAttribute('hidden', true);
+      
   });
 };
 
