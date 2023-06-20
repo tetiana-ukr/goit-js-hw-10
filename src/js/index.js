@@ -77,9 +77,7 @@ const onSelecthCat = (event) => {
 
 function createCardCat(objectCat) {
   
- // mesLoaderEl.removeAttribute('hidden');
- 
-  if (!objectCat) {
+    if (!objectCat) {
 
     Notiflix.Notify.failure(
 
