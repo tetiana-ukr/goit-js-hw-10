@@ -90,14 +90,14 @@ function createCardCat(objectCat) {
 
   return objectCat.map(({ url, breeds: [{ name, temperament, description }] }) => 
     
-  ` <div class="card-img-cat">
-        <img src="${ url}" alt="${name} class="foto-cat" width="400" height="300"">
+  ` 
+        <img src="${ url}" alt="${name} class="foto-cat" width="600">
         
              <h2 class="card-title">${ name}</h2>
         <p class="card-description">${ description }</p>
       <p class="cat-temperament"><b>Temperament: </b> ${ temperament }</p>
       
-    </div>`).join('');
+    `).join('');
   
   
 };
